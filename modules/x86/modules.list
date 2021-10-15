@@ -108,6 +108,7 @@ kernel/drivers/block/rbd.ko
 kernel/drivers/block/skd.ko
 kernel/drivers/block/sx8.ko
 kernel/drivers/block/xen-blkback/xen-blkback.ko
+kernel/drivers/block/zram/zram.ko
 kernel/drivers/char/hangcheck-timer.ko
 kernel/drivers/char/hw_random/amd-rng.ko
 kernel/drivers/char/hw_random/intel-rng.ko

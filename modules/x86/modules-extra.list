@@ -97,7 +97,6 @@ kernel/drivers/block/null_blk.ko
 kernel/drivers/block/pktcdvd.ko
 kernel/drivers/block/rsxx/rsxx.ko
 kernel/drivers/block/umem.ko
-kernel/drivers/block/zram/zram.ko
 kernel/drivers/bluetooth/ath3k.ko
 kernel/drivers/bluetooth/bcm203x.ko
 kernel/drivers/bluetooth/bfusb.ko
