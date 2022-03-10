@@ -24,6 +24,8 @@ echo "to publish kernel files and container images, run dist/publish.sh"
 
 echo "#!/bin/sh"> dist/publish.sh
 echo "github-release release --user burmilla --repo os-kernel --tag v${KERNEL_VERSION} --pre-release" >> dist/publish.sh
+echo "echo Waiting 30 seconds after release creation to make sure that GitHub is ready for uploads" >> dist/publish.sh
+echo "sleep 30s" >> dist/publish.sh
 echo "github-release upload  --user burmilla --repo os-kernel --tag v${KERNEL_VERSION} --file ./dist/kernel/linux-${KERNEL_VERSION}-${KERNEL_ARCH}-src.tgz --name linux-${KERNEL_VERSION}-${KERNEL_ARCH}-src.tgz" >> dist/publish.sh
 echo "github-release upload  --user burmilla --repo os-kernel --tag v${KERNEL_VERSION} --file ./dist/kernel/build-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz --name build-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz" >> dist/publish.sh
 echo "github-release upload  --user burmilla --repo os-kernel --tag v${KERNEL_VERSION} --file ./dist/kernel/extra-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz --name extra-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz" >> dist/publish.sh
