@@ -16,6 +16,7 @@ curl -sL ${KERNEL_URL}${KERNEL_SIGN} > ${KERNEL_SIGN}
 
 set +e
 gpg2 --locate-keys torvalds@kernel.org gregkh@kernel.org
+set -e
 
 if ! xz -cd ${KERNEL_TAR} | gpg2 --verify ${KERNEL_SIGN} - ; then
     echo "ERROR: ${KERNEL_TAR} signing error" 1>&2
