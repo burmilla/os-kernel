@@ -57,7 +57,7 @@ jobs:
         export KERNEL_TAR=linux-$KERNEL_TAG.tar.xz
         export KERNEL_SIGN=linux-$KERNEL_TAG.tar.sign
 
-        make release
+        sudo make release
 
     - name: Login to DockerHub
       uses: docker/login-action@v1
