@@ -13,7 +13,7 @@ cd ${BUILD}
 
 if [ ! -e ${DIR} ]; then
     echo Extracting ${ARTIFACTS}/${KERNEL_TAR}
-    TEMP=$(mktemp -d -p ${BUILD})
+    TEMP=$(mktemp -d)
     mkdir ${TEMP}/${DIR}
     trap "rm -rf ${TEMP}" exit
 
