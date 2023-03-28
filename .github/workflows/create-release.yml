@@ -24,11 +24,28 @@ jobs:
         sudo bunzip2 /usr/local/bin/github-release.bz2
         sudo chmod 0755 /usr/local/bin/github-release
 
+    - name: Install tools
+      run: |
+        export DEBIAN_FRONTEND=noninteractive
+        sudo apt-get update
+        sudo apt-get install -y \
+          ccache \
+          dwarves \
+          vim \
+          gnupg2 \
+          locales \
+          bc \
+          kmod \
+          libelf-dev \
+          bison \
+          flex \
+          u-boot-tools
+
     - name: Build kernel
       run: |
         git tag v${{ github.event.inputs.version }}-burmilla
         git checkout tags/v${{ github.event.inputs.version }}-burmilla -b v${{ github.event.inputs.version }}-burmilla
-        KERNEL_TAG=${{ github.event.inputs.version }} OVERRIDE_KERNEL_ARCH=${{ github.event.inputs.arch }} make release
+        FIRMWARE_TAG=20230310 KERNEL_TAG=${{ github.event.inputs.version }} OVERRIDE_KERNEL_ARCH=${{ github.event.inputs.arch }} make release
 
     - name: Login to DockerHub
       uses: docker/login-action@v1
