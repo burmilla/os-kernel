@@ -45,7 +45,7 @@ jobs:
       run: |
         git tag v${{ github.event.inputs.version }}-burmilla
         git checkout tags/v${{ github.event.inputs.version }}-burmilla -b v${{ github.event.inputs.version }}-burmilla
-        FIRMWARE_TAG=20230310 KERNEL_TAG=${{ github.event.inputs.version }} OVERRIDE_KERNEL_ARCH=${{ github.event.inputs.arch }} make release
+        FIRMWARE_TAG=20230310 KERNEL_TAG=${{ github.event.inputs.version }} OVERRIDE_KERNEL_ARCH=${{ github.event.inputs.arch }} KERNEL_ARCH=${{ github.event.inputs.arch }} make release
 
     - name: Login to DockerHub
       uses: docker/login-action@v1
