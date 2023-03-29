@@ -39,7 +39,8 @@ jobs:
           libelf-dev \
           bison \
           flex \
-          u-boot-tools
+          u-boot-tools \
+          libssl-dev
 
     - name: Build kernel
       run: |
