@@ -29,12 +29,12 @@ FIRMWARE=$(readlink -f firmware/${KERNEL_ARCH}/firmware)
 MODULE_LIST=$(readlink -f modules/${KERNEL_ARCH}/modules.list)
 MODULE_EXTRA_LIST=$(readlink -f modules/${KERNEL_ARCH}/modules-extra.list)
 
-echo "looking for /source/dist/kernel/extra-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz"
-echo "looking for /source/dist/kernel/build-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz"
-echo "looking for /source/dist/kernel/linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz"
-if [ -e "/source/dist/kernel/linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz" ] \
-   && [ -e "/source/dist/kernel/extra-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz" ] \
-   && [ -e "/source/dist/kernel/build-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz" ]; then
+echo "looking for dist/kernel/extra-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz"
+echo "looking for dist/kernel/build-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz"
+echo "looking for dist/kernel/linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz"
+if [ -e "dist/kernel/linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz" ] \
+   && [ -e "dist/kernel/extra-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz" ] \
+   && [ -e "dist/kernel/build-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz" ]; then
     echo "Skipping packaging of kernel, extras and headers - already found in ./dist/kernel/"
 else
     cd ${SOURCEDIR}
