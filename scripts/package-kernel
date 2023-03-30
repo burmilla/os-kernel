@@ -38,12 +38,18 @@ if [ -e "/source/dist/kernel/linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz" ] \
     echo "Skipping packaging of kernel, extras and headers - already found in ./dist/kernel/"
 else
     cd ${SOURCEDIR}
-    KVER=$(make ARCH=${KERNEL_ARCH} kernelrelease)
+    if [ ! -z "${KERNEL_ARCH}" ];then
+      echo "FixMe: Varible KERNEL_ARCH is empty. Forcing value x86 to it"
+      export KERNEL_ARCH=x86
+    fi
+    pwd
+    KVER=$(make --no-print-directory ARCH=${KERNEL_ARCH} kernelrelease)
+    echo "KVER: $KVER"
 
     create_firmware_tar $FIRMWARE
 
     FILE="linux-${KVER}-${KERNEL_ARCH}.tar"
-
+    echo "FILE: $FILE"
     (
         split_tar $FILE $MODULE_LIST $MODULE_EXTRA_LIST
     )
