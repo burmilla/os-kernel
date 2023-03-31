@@ -14,3 +14,5 @@
 /Dockerfile.dapper*
 !/Dockerfile.dapper
 /linux-firmware/
+/extra
+/main
