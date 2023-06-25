@@ -1,4 +1,4 @@
-FROM gcc:11.3.0
+FROM gcc:13.1
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && apt-get install -y \
@@ -62,7 +62,7 @@ ENV OS_REPO=${OS_REPO} \
     DOCKER_URL_mips=https://get.docker.com/builds/Linux/x86_64/docker-1.10.3 \
     KERNEL_TAG=${KERNEL_TAG} \
     KERNEL_VERSION=${KERNEL_VERSION} \
-    KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v5.x/ \
+    KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v6.x/ \
     KERNEL_TAR=linux-${KERNEL_TAG}.tar.xz \
     KERNEL_SIGN=linux-${KERNEL_TAG}.tar.sign \
     FIRMWARE_TAG=${FIRMWARE_TAG} \

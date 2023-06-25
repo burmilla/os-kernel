@@ -10,7 +10,7 @@ If you are looking for more stable version then check [v4.14.x branch](https://g
 - Check from [kernel.org](https://www.kernel.org/) that what is latest 5.10.x kernel version.
 - Run kernel configuration with commands (update version to KERNEL_TAG):
 ```bash
-KERNEL_TAG=5.10.? MENUCONFIG=true OVERRIDE_KERNEL_ARCH=x86 make kernel-config
+KERNEL_TAG=6.1.? MENUCONFIG=true OVERRIDE_KERNEL_ARCH=x86 make kernel-config
 ```
 - Save changes over .config
 - Copy new config version over to one which is stored to GIT:
@@ -19,7 +19,7 @@ cp dist/kernel/config config/x86/kernel-config
 ```
 - Test build kernel with command:
 ```bash
-KERNEL_TAG=5.10.? OVERRIDE_KERNEL_ARCH=x86 make release
+KERNEL_TAG=6.1.? OVERRIDE_KERNEL_ARCH=x86 make release
 ```
 - Update firmware/... files if build fails to `ERROR: Firmware ? in ? is not the latest - update to`
 - Update modules/x86/modules.list / modules-extra.list if build fails to new modules was found error

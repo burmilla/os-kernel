@@ -1,11 +1,11 @@
 diff --git a/init/main.c b/init/main.c
-index e880b4e..112d88c 100644
+index aa21add5f..f4d700d92 100644
 --- a/init/main.c
 +++ b/init/main.c
-@@ -874,9 +874,12 @@ asmlinkage __visible void __init __no_sanitize_address start_kernel(void)
- 				  static_command_line, __start___param,
+@@ -976,9 +976,12 @@ asmlinkage __visible void __init __no_sanitize_address start_kernel(void)
  				  __stop___param - __start___param,
  				  -1, -1, NULL, &unknown_bootoption);
+ 	print_unknown_bootoptions();
 -	if (!IS_ERR_OR_NULL(after_dashes))
 +	if (!IS_ERR_OR_NULL(after_dashes)) {
 +		/* elide the non-kernel params by puting a \0 just after the -- */

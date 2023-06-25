@@ -49,16 +49,11 @@ kernel/crypto/md4.ko
 kernel/crypto/michael_mic.ko
 kernel/crypto/pcbc.ko
 kernel/crypto/pcrypt.ko
-kernel/crypto/rmd128.ko
 kernel/crypto/rmd160.ko
-kernel/crypto/rmd256.ko
-kernel/crypto/rmd320.ko
-kernel/crypto/salsa20_generic.ko
 kernel/crypto/seed.ko
 kernel/crypto/seqiv.ko
 kernel/crypto/tcrypt.ko
 kernel/crypto/tea.ko
-kernel/crypto/tgr192.ko
 kernel/crypto/twofish_generic.ko
 kernel/crypto/vmac.ko
 kernel/crypto/wp512.ko
@@ -80,8 +75,6 @@ kernel/drivers/block/drbd/drbd.ko
 kernel/drivers/block/mtip32xx/mtip32xx.ko
 kernel/drivers/block/nbd.ko
 kernel/drivers/block/rbd.ko
-kernel/drivers/block/skd.ko
-kernel/drivers/block/sx8.ko
 kernel/drivers/block/xen-blkback/xen-blkback.ko
 kernel/drivers/char/hangcheck-timer.ko
 kernel/drivers/char/hw_random/amd-rng.ko
@@ -94,7 +87,6 @@ kernel/drivers/char/ipmi/ipmi_si.ko
 kernel/drivers/char/ipmi/ipmi_ssif.ko
 kernel/drivers/char/ipmi/ipmi_watchdog.ko
 kernel/drivers/char/nvram.ko
-kernel/drivers/char/raw.ko
 kernel/drivers/cpufreq/amd_freq_sensitivity.ko
 kernel/drivers/cpufreq/speedstep-lib.ko
 kernel/drivers/crypto/ccp/ccp-crypto.ko
@@ -103,7 +95,6 @@ kernel/drivers/crypto/padlock-sha.ko
 kernel/drivers/dca/dca.ko
 kernel/drivers/dma/dw/dw_dmac.ko
 kernel/drivers/dma/idma64.ko
-kernel/drivers/edac/amd64_edac_mod.ko
 kernel/drivers/edac/e752x_edac.ko
 kernel/drivers/edac/i3000_edac.ko
 kernel/drivers/edac/i3200_edac.ko
@@ -229,7 +220,6 @@ kernel/drivers/net/ethernet/mellanox/mlxsw/mlxsw_core.ko
 kernel/drivers/net/ethernet/mellanox/mlxsw/mlxsw_pci.ko
 kernel/drivers/net/ethernet/myricom/myri10ge/myri10ge.ko
 kernel/drivers/net/ethernet/neterion/s2io.ko
-kernel/drivers/net/ethernet/neterion/vxge/vxge.ko
 kernel/drivers/net/ethernet/nvidia/forcedeth.ko
 kernel/drivers/net/ethernet/qlogic/netxen/netxen_nic.ko
 kernel/drivers/net/ethernet/qlogic/qede/qede.ko
@@ -261,7 +251,6 @@ kernel/drivers/net/usb/qmi_wwan.ko
 kernel/drivers/net/usb/r8152.ko
 kernel/drivers/net/veth.ko
 kernel/drivers/net/vrf.ko
-kernel/drivers/net/vxlan.ko
 kernel/drivers/net/wireless/intel/iwlwifi/iwlwifi.ko
 kernel/drivers/net/wireless/intel/iwlwifi/mvm/iwlmvm.ko
 kernel/drivers/net/xen-netback/xen-netback.ko
@@ -269,7 +258,6 @@ kernel/drivers/nvme/host/nvme-core.ko
 kernel/drivers/nvme/host/nvme.ko
 kernel/drivers/pci/hotplug/acpiphp_ibm.ko
 kernel/drivers/pci/xen-pcifront.ko
-kernel/drivers/platform/x86/intel-hid.ko
 kernel/drivers/scsi/BusLogic.ko
 kernel/drivers/scsi/aacraid/aacraid.ko
 kernel/drivers/scsi/aic94xx/aic94xx.ko
@@ -367,7 +355,6 @@ kernel/net/bridge/netfilter/ebt_vlan.ko
 kernel/net/bridge/netfilter/ebtable_broute.ko
 kernel/net/bridge/netfilter/ebtable_filter.ko
 kernel/net/bridge/netfilter/ebtable_nat.ko
-kernel/net/bridge/netfilter/nf_log_bridge.ko
 kernel/net/bridge/netfilter/nft_meta_bridge.ko
 kernel/net/bridge/netfilter/nft_reject_bridge.ko
 kernel/net/dccp/dccp_diag.ko
@@ -395,8 +382,6 @@ kernel/net/ipv4/netfilter/iptable_mangle.ko
 kernel/net/ipv4/netfilter/iptable_nat.ko
 kernel/net/ipv4/netfilter/iptable_raw.ko
 kernel/net/ipv4/netfilter/nf_dup_ipv4.ko
-kernel/net/ipv4/netfilter/nf_log_arp.ko
-kernel/net/ipv4/netfilter/nf_log_ipv4.ko
 kernel/net/ipv4/netfilter/nf_nat_h323.ko
 kernel/net/ipv4/netfilter/nf_nat_pptp.ko
 kernel/net/ipv4/netfilter/nf_nat_snmp_basic.ko
@@ -442,7 +427,6 @@ kernel/net/ipv6/netfilter/ip6table_mangle.ko
 kernel/net/ipv6/netfilter/ip6table_nat.ko
 kernel/net/ipv6/netfilter/ip6table_raw.ko
 kernel/net/ipv6/netfilter/nf_dup_ipv6.ko
-kernel/net/ipv6/netfilter/nf_log_ipv6.ko
 kernel/net/ipv6/netfilter/nft_dup_ipv6.ko
 kernel/net/ipv6/netfilter/nft_reject_ipv6.ko
 kernel/net/ipv6/sit.ko
@@ -498,7 +482,6 @@ kernel/net/netfilter/nfnetlink_osf.ko
 kernel/net/netfilter/nfnetlink_queue.ko
 kernel/net/netfilter/nft_chain_nat.ko
 kernel/net/netfilter/nft_compat.ko
-kernel/net/netfilter/nft_counter.ko
 kernel/net/netfilter/nft_ct.ko
 kernel/net/netfilter/nft_hash.ko
 kernel/net/netfilter/nft_limit.ko
