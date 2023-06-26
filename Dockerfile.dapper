@@ -1,4 +1,4 @@
-FROM gcc:11.3.0
+FROM gcc:11.4
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && apt-get install -y \
@@ -9,6 +9,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
         locales \
         bc \
         kmod \
+        clang \
+        lld \
+        llvm \
         libelf-dev \
         bison \
         flex \
@@ -52,7 +55,7 @@ ARG OS_REPO=burmilla
 ARG KERNEL_TAG
 ARG KERNEL_VERSION=${KERNEL_TAG}-${OS_REPO}
 
-ARG FIRMWARE_TAG=20230310
+ARG FIRMWARE_TAG=20230625
 ARG MENUCONFIG
 
 ENV OS_REPO=${OS_REPO} \

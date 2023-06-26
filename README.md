@@ -32,7 +32,7 @@ Or just [click here](//github.com/burmilla/os/issues/new?title=%5Bos-base%5D%20)
 
 
 # License
-Copyright (c) 2020 Project Burmilla
+Copyright (c) 2020-2023 Project Burmilla
 
 Copyright (c) 2014-2020 [Rancher Labs, Inc.](http://rancher.com)
 
