@@ -1,4 +1,4 @@
-FROM gcc:10.3.0
+FROM gcc:11.4.0
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && apt-get install -y \
@@ -51,7 +51,7 @@ ARG OS_REPO=burmilla
 ARG KERNEL_TAG
 ARG KERNEL_VERSION=${KERNEL_TAG}-${OS_REPO}
 
-ARG FIRMWARE_TAG=20221214
+ARG FIRMWARE_TAG=20230804
 ARG MENUCONFIG
 
 ENV OS_REPO=${OS_REPO} \
