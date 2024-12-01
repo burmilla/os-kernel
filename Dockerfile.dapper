@@ -1,32 +1,4 @@
-FROM gcc:14.2
-
-RUN DEBIAN_FRONTEND=noninteractive apt-get update \
-    && apt-get install -y \
-        ccache \
-        vim \
-        gnupg2 \
-        locales \
-        bc \
-        kmod \
-        libelf-dev \
-        bison \
-        flex \
-        u-boot-tools \
-        gcc-aarch64-linux-gnu \
-    && rm -f /bin/sh && ln -s /bin/bash /bin/sh
-#       gcc-mips64el-linux-gnuabi64 \
-
-RUN dpkg --add-architecture arm64 \
-    && DEBIAN_FRONTEND=noninteractive apt-get update \
-    && apt-get install -y libelf-dev:arm64
-
-# RUN dpkg --add-architecture mips64el \
-#     && DEBIAN_FRONTEND=noninteractive apt-get update \
-#     && apt-get install -y libelf-dev:mips64el
-
-# Install dapper
-RUN curl -sL https://releases.rancher.com/dapper/v0.5.4/dapper-$(uname -s)-$(uname -m | sed 's/arm.*/arm/') > /usr/bin/dapper \
-    && chmod +x /usr/bin/dapper
+FROM burmilla/kernel-builder:gcc-14.2.0-1
 
 ENTRYPOINT ["./scripts/entry"]
 CMD ["ci"]
