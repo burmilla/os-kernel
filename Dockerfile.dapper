@@ -38,7 +38,8 @@ ENV OS_REPO=${OS_REPO} \
     KERNEL_SIGN=linux-${KERNEL_TAG}.tar.sign \
     FIRMWARE_TAG=${FIRMWARE_TAG} \
     KERNEL_ARCH=x86 \
-    MENUCONFIG=${MENUCONFIG}
+    MENUCONFIG=${MENUCONFIG} \
+    BUILD=/usr/src
 # for rc testing
 #ENV KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v4.x/testing/linux-${KERNEL_TAG}.tar.xz
 
