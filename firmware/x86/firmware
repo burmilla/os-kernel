@@ -20,14 +20,6 @@ e100/d101m_ucode.bin
 e100/d101s_ucode.bin
 e100/d102e_ucode.bin
 isci/isci_firmware.bin
-iwlwifi-3160-17.ucode
-iwlwifi-3168-29.ucode
-iwlwifi-7260-17.ucode
-iwlwifi-7265D-29.ucode
-iwlwifi-8000C-36.ucode
-iwlwifi-8265-36.ucode
-iwlwifi-9000-pu-b0-jf-b0-46.ucode
-iwlwifi-9260-th-b0-jf-b0-46.ucode
 myri10ge_ethp_z8e.dat
 myri10ge_eth_z8e.dat
 myri10ge_rss_ethp_z8e.dat
