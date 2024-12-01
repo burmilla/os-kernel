@@ -5,9 +5,7 @@ cd $(dirname $0)/..
 
 source ./scripts/version
 
-if [ "${KERNEL_ARCH}" != "loongarch" ]; then
-    ./scripts/test-firmware
-fi
+./scripts/test-firmware
 
 if ! ./scripts/download; then
     echo "blah"
