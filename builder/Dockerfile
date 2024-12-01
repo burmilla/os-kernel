@@ -18,6 +18,7 @@ RUN set -eux; \
         libelf-dev \
         bison \
         flex \
+        zstd \
         u-boot-tools \
         gcc-aarch64-linux-gnu \
         gcc-loongarch64-linux-gnu \
