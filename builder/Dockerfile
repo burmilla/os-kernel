@@ -1,18 +1,26 @@
-#
-# NOTE: THIS DOCKERFILE IS GENERATED VIA "apply-templates.sh"
-#
-# PLEASE DO NOT EDIT IT DIRECTLY.
-#
-
-FROM buildpack-deps:bookworm
+FROM buildpack-deps:sid
 
 RUN set -eux; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
-# install abigail-tools so we can use abidiff later to verify that we don't break Debian packages
 		abigail-tools \
-	; \
-	rm -rf /var/lib/apt/lists/*
+		dpkg-dev \
+		flex \
+		gnupg \
+        ccache \
+        vim \
+        gnupg2 \
+        locales \
+        bc \
+        kmod \
+        libelf-dev \
+        bison \
+        flex \
+        u-boot-tools \
+        gcc-aarch64-linux-gnu \
+        gcc-loongarch64-linux-gnu \
+    && rm -f /bin/sh && ln -s /bin/bash /bin/sh \
+	&& rm -rf /var/lib/apt/lists/*
 
 # https://gcc.gnu.org/mirrors.html
 ENV GPG_KEYS \
@@ -48,15 +56,6 @@ ENV GCC_VERSION 14.2.0
 # Docker EOL: 2026-02-01
 
 RUN set -ex; \
-	\
-	savedAptMark="$(apt-mark showmanual)"; \
-	apt-get update; \
-	apt-get install -y --no-install-recommends \
-		dpkg-dev \
-		flex \
-		gnupg \
-	; \
-	rm -r /var/lib/apt/lists/*; \
 	\
 	_fetch() { \
 		local fetch="$1"; shift; \
@@ -132,11 +131,7 @@ RUN set -ex; \
 	\
 	cd ..; \
 	\
-	rm -rf "$dir" /usr/src/gcc; \
-	\
-	apt-mark auto '.*' > /dev/null; \
-	[ -z "$savedAptMark" ] || apt-mark manual $savedAptMark; \
-	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
+	rm -rf "$dir" /usr/src/gcc;
 
 # gcc installs .so files in /usr/local/lib64 (and /usr/local/lib)...
 RUN set -ex; \
@@ -156,3 +151,7 @@ RUN set -ex; \
 	dpkg-divert --divert /usr/bin/g++.orig --rename /usr/bin/g++; \
 	dpkg-divert --divert /usr/bin/gfortran.orig --rename /usr/bin/gfortran; \
 	update-alternatives --install /usr/bin/cc cc /usr/local/bin/gcc 999
+
+
+# Customizations
+
