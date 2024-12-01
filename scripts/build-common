@@ -8,7 +8,7 @@ if [[ "$KERNEL_TAG" == "" ]]; then
 fi
 
 : ${ARTIFACTS:=$(pwd)/assets}
-: ${BUILD:=/usr/src}
+: ${BUILD:=$(pwd)/build}
 : ${CONFIG:=$(pwd)/config}
 : ${DIST:=$(pwd)/dist}
 : ${PATCHES:=$(pwd)/patches}
