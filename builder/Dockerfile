@@ -27,6 +27,6 @@ RUN set -eux; \
 RUN curl -sL https://releases.rancher.com/dapper/v0.5.4/dapper-$(uname -s)-$(uname -m | sed 's/arm.*/arm/') > /usr/bin/dapper \
     && chmod +x /usr/bin/dapper
 
-ENV LANG en_US.UTF-8
+ENV LANG=en_US.UTF-8
 RUN echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen \
     && locale-gen
