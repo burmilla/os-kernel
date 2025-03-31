@@ -517,7 +517,6 @@ kernel/drivers/iio/adc/qcom-spmi-vadc.ko
 kernel/drivers/iio/adc/qcom-vadc-common.ko
 kernel/drivers/iio/adc/ti-adc081c.ko
 kernel/drivers/iio/adc/ti-adc128s052.ko
-kernel/drivers/iio/adc/ti_am335x_adc.ko
 kernel/drivers/iio/adc/twl4030-madc.ko
 kernel/drivers/iio/adc/twl6030-gpadc.ko
 kernel/drivers/iio/adc/viperboard_adc.ko
@@ -626,6 +625,7 @@ kernel/drivers/iio/temperature/tsys01.ko
 kernel/drivers/iio/temperature/tsys02d.ko
 kernel/drivers/iio/trigger/iio-trig-interrupt.ko
 kernel/drivers/iio/trigger/iio-trig-sysfs.ko
+kernel/drivers/infiniband/sw/rxe/rdma_rxe.ko
 kernel/drivers/infiniband/ulp/isert/ib_isert.ko
 kernel/drivers/infiniband/ulp/srpt/ib_srpt.ko
 kernel/drivers/input/evbug.ko
@@ -793,7 +793,6 @@ kernel/drivers/input/touchscreen/rohm_bu21023.ko
 kernel/drivers/input/touchscreen/st1232.ko
 kernel/drivers/input/touchscreen/sur40.ko
 kernel/drivers/input/touchscreen/sx8654.ko
-kernel/drivers/input/touchscreen/ti_am335x_tsc.ko
 kernel/drivers/input/touchscreen/touchit213.ko
 kernel/drivers/input/touchscreen/touchright.ko
 kernel/drivers/input/touchscreen/touchwin.ko
@@ -2788,7 +2787,6 @@ kernel/net/netfilter/xt_AUDIT.ko
 kernel/net/netfilter/xt_LED.ko
 kernel/net/phonet/pn_pep.ko
 kernel/net/rfkill/rfkill-gpio.ko
-kernel/net/sched/sch_atm.ko
 kernel/net/sctp/sctp_diag.ko
 kernel/net/tipc/diag.ko
 kernel/net/vmw_vsock/vsock_diag.ko
