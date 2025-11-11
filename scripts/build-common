@@ -108,7 +108,19 @@ split_tar() {
     mkdir -p tar/{build,main,extra}
     echo Extracting $archive
     tar xf $archive -C tar/build
+
+    echo Generating a single deduplicated vmlinux BTF
+    pahole --btf_encode_detached=tar/build/boot/vmlinux-${KVER}.btf tar/build/boot/vmlinux-${KVER}
+
+    echo Striping BTF + ALL DWARF debug sections from every module
+    find tar/build/lib/modules/${KVER} -name "*.ko" | xargs -P$(nproc) -n1 strip --strip-debug
+    find tar/build/lib/modules/${KVER} -name "*.ko" | xargs -P$(nproc) -n1 objcopy --remove-section=.BTF --remove-section=.BTF.ext
+
+    echo Generating modules.dep and map files
     /sbin/depmod -b tar/build $(basename tar/build/lib/modules/*)
+
+    echo Removing non-compressed version of kernel binary
+    rm -f tar/build/boot/vmlinux-${KVER}
 
     cd tar/build/lib/modules/*/kernel/..
 
