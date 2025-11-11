@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 cd $(dirname $0)/..
 
@@ -53,5 +54,6 @@ else
     cat base.tar | gzip -c > ${DIST}/kernel/linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz
     cat extra.tar | gzip -c > ${DIST}/kernel/extra-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz
     list_build_files | tar -czf ${DIST}/kernel/build-linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz -T /dev/stdin
+    cp ${SOURCEDIR}/tar/build/boot/vmlinux-${KVER}.btf ${DIST}/kernel/linux-${KERNEL_VERSION}-${KERNEL_ARCH}.btf
     cp .config ${DIST}/kernel/config
 fi
