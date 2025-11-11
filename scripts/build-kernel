@@ -33,6 +33,6 @@ else
         echo "Skipping kernel build, found linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar in $(pwd)"
     else
         echo "building $KVER"
-        make ARCH=${KERNEL_ARCH} -j$(nproc) tar-pkg
+        make ARCH=${KERNEL_ARCH} LLVM=1 -j$(nproc) tar-pkg
     fi
 fi
