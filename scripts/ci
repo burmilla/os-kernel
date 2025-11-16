@@ -15,5 +15,6 @@ fi
 run-parts -v ./scripts/hooks
 ./scripts/build-kernel
 ./scripts/package-kernel
+rm -rf /usr/src/*
 ./scripts/build-images
 
