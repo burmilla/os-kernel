@@ -1,4 +1,4 @@
-FROM gcc:11.4.0
+FROM gcc:12.5.0
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && apt-get install -y \
