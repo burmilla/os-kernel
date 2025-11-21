@@ -41,11 +41,11 @@ else
     KVER=$(make ARCH=${KERNEL_ARCH} kernelrelease)
 
     # Generate a single deduplicated vmlinux BTF
-    pahole --btf_encode_detach=vmlinux.btf vmlinux
+    pahole --btf_encode_detached=${SOURCEDIR}/tar-install/boot=vmlinux-${KVER}.btf ${SOURCEDIR}/tar-install/boot/vmlinux-${KVER}
 
-    # Strip .BTF section from every module
-    find /lib/modules/$KVER -name "*.ko" -print0 | \
-    xargs -0 -P$(nproc) -n1 objcopy --remove-section=.BTF --remove-section=.BTF.ext
+    # Strip BTF + ALL DWARF debug sections from every module
+    find ${SOURCEDIR}/tar-install/lib/modules/lib/modules/${KVER} -name "*.ko" | xargs -P$(nproc) -n1 strip --strip-debug
+    find ${SOURCEDIR}/tar-install/lib/modules/lib/modules/${KVER} -name "*.ko" | xargs -P$(nproc) -n1 objcopy --remove-section=.BTF --remove-section=.BTF.ext
 
     create_firmware_tar $FIRMWARE
 
