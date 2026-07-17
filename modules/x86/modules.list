@@ -32,15 +32,11 @@ kernel/crypto/camellia_generic.ko
 kernel/crypto/ccm.ko
 kernel/crypto/cmac.ko
 kernel/crypto/crypto_user.ko
-kernel/crypto/ctr.ko
 kernel/crypto/des_generic.ko
-kernel/crypto/drbg.ko
 kernel/crypto/echainiv.ko
 kernel/crypto/fcrypt.ko
 kernel/crypto/gcm.ko
-kernel/crypto/gf128mul.ko
 kernel/crypto/ghash-generic.ko
-kernel/crypto/jitterentropy_rng.ko
 kernel/crypto/khazad.ko
 kernel/crypto/lrw.ko
 kernel/crypto/lz4.ko
@@ -49,16 +45,11 @@ kernel/crypto/md4.ko
 kernel/crypto/michael_mic.ko
 kernel/crypto/pcbc.ko
 kernel/crypto/pcrypt.ko
-kernel/crypto/rmd128.ko
 kernel/crypto/rmd160.ko
-kernel/crypto/rmd256.ko
-kernel/crypto/rmd320.ko
-kernel/crypto/salsa20_generic.ko
 kernel/crypto/seed.ko
 kernel/crypto/seqiv.ko
 kernel/crypto/tcrypt.ko
 kernel/crypto/tea.ko
-kernel/crypto/tgr192.ko
 kernel/crypto/twofish_generic.ko
 kernel/crypto/vmac.ko
 kernel/crypto/wp512.ko
@@ -80,7 +71,6 @@ kernel/drivers/block/drbd/drbd.ko
 kernel/drivers/block/mtip32xx/mtip32xx.ko
 kernel/drivers/block/nbd.ko
 kernel/drivers/block/rbd.ko
-kernel/drivers/block/skd.ko
 kernel/drivers/block/xen-blkback/xen-blkback.ko
 kernel/drivers/char/hangcheck-timer.ko
 kernel/drivers/char/hw_random/amd-rng.ko
@@ -93,7 +83,6 @@ kernel/drivers/char/ipmi/ipmi_si.ko
 kernel/drivers/char/ipmi/ipmi_ssif.ko
 kernel/drivers/char/ipmi/ipmi_watchdog.ko
 kernel/drivers/char/nvram.ko
-kernel/drivers/char/raw.ko
 kernel/drivers/cpufreq/amd_freq_sensitivity.ko
 kernel/drivers/cpufreq/speedstep-lib.ko
 kernel/drivers/crypto/ccp/ccp-crypto.ko
@@ -102,11 +91,11 @@ kernel/drivers/crypto/padlock-sha.ko
 kernel/drivers/dca/dca.ko
 kernel/drivers/dma/dw/dw_dmac.ko
 kernel/drivers/dma/idma64.ko
-kernel/drivers/edac/amd64_edac_mod.ko
+kernel/drivers/edac/amd64_edac.ko
 kernel/drivers/edac/e752x_edac.ko
+kernel/drivers/edac/edac_mce_amd.ko
 kernel/drivers/edac/i3000_edac.ko
 kernel/drivers/edac/i3200_edac.ko
-kernel/drivers/edac/i5000_edac.ko
 kernel/drivers/edac/i5100_edac.ko
 kernel/drivers/edac/i5400_edac.ko
 kernel/drivers/edac/i7300_edac.ko
@@ -172,7 +161,6 @@ kernel/drivers/md/dm-snapshot.ko
 kernel/drivers/md/dm-thin-pool.ko
 kernel/drivers/md/dm-verity.ko
 kernel/drivers/md/dm-zero.ko
-kernel/drivers/md/linear.ko
 kernel/drivers/md/raid0.ko
 kernel/drivers/md/raid1.ko
 kernel/drivers/md/raid10.ko
@@ -217,7 +205,6 @@ kernel/drivers/net/ethernet/intel/e1000e/e1000e.ko
 kernel/drivers/net/ethernet/intel/i40e/i40e.ko
 kernel/drivers/net/ethernet/intel/igb/igb.ko
 kernel/drivers/net/ethernet/intel/igbvf/igbvf.ko
-kernel/drivers/net/ethernet/intel/ixgb/ixgb.ko
 kernel/drivers/net/ethernet/intel/ixgbe/ixgbe.ko
 kernel/drivers/net/ethernet/intel/ixgbevf/ixgbevf.ko
 kernel/drivers/net/ethernet/jme.ko
@@ -228,7 +215,6 @@ kernel/drivers/net/ethernet/mellanox/mlxsw/mlxsw_core.ko
 kernel/drivers/net/ethernet/mellanox/mlxsw/mlxsw_pci.ko
 kernel/drivers/net/ethernet/myricom/myri10ge/myri10ge.ko
 kernel/drivers/net/ethernet/neterion/s2io.ko
-kernel/drivers/net/ethernet/neterion/vxge/vxge.ko
 kernel/drivers/net/ethernet/nvidia/forcedeth.ko
 kernel/drivers/net/ethernet/qlogic/netxen/netxen_nic.ko
 kernel/drivers/net/ethernet/qlogic/qede/qede.ko
@@ -245,14 +231,15 @@ kernel/drivers/net/mdio/mdio-cavium.ko
 kernel/drivers/net/mdio/mdio-gpio.ko
 kernel/drivers/net/mdio/mdio-thunder.ko
 kernel/drivers/net/phy/amd.ko
-kernel/drivers/net/phy/aquantia.ko
-kernel/drivers/net/phy/at803x.ko
+kernel/drivers/net/phy/aquantia/aquantia.ko
 kernel/drivers/net/phy/bcm-phy-lib.ko
 kernel/drivers/net/phy/bcm87xx.ko
 kernel/drivers/net/phy/broadcom.ko
 kernel/drivers/net/phy/dp83848.ko
 kernel/drivers/net/phy/marvell.ko
 kernel/drivers/net/phy/microchip.ko
+kernel/drivers/net/phy/qcom/at803x.ko
+kernel/drivers/net/phy/qcom/qcom-phy-lib.ko
 kernel/drivers/net/phy/teranetics.ko
 kernel/drivers/net/usb/cdc_ether.ko
 kernel/drivers/net/usb/cdc_mbim.ko
@@ -269,7 +256,8 @@ kernel/drivers/nvme/host/nvme-rdma.ko
 kernel/drivers/nvme/host/nvme.ko
 kernel/drivers/pci/hotplug/acpiphp_ibm.ko
 kernel/drivers/pci/xen-pcifront.ko
-kernel/drivers/platform/x86/intel-hid.ko
+kernel/drivers/platform/x86/intel/intel-hid.ko
+kernel/drivers/ras/amd/atl/amd_atl.ko
 kernel/drivers/scsi/BusLogic.ko
 kernel/drivers/scsi/aacraid/aacraid.ko
 kernel/drivers/scsi/aic94xx/aic94xx.ko
@@ -320,7 +308,6 @@ kernel/drivers/xen/xenfs/xenfs.ko
 kernel/fs/9p/9p.ko
 kernel/fs/btrfs/btrfs.ko
 kernel/fs/ceph/ceph.ko
-kernel/fs/cifs/cifs.ko
 kernel/fs/fat/msdos.ko
 kernel/fs/hfs/hfs.ko
 kernel/fs/hfsplus/hfsplus.ko
@@ -337,6 +324,9 @@ kernel/fs/nls/nls_iso8859-1.ko
 kernel/fs/nls/nls_utf8.ko
 kernel/fs/quota/quota_tree.ko
 kernel/fs/quota/quota_v2.ko
+kernel/fs/smb/client/cifs.ko
+kernel/fs/smb/common/cifs_arc4.ko
+kernel/fs/smb/common/cifs_md4.ko
 kernel/fs/udf/udf.ko
 kernel/fs/xfs/xfs.ko
 kernel/kernel/bpf/preload/bpf_preload.ko
@@ -367,7 +357,6 @@ kernel/net/bridge/netfilter/ebt_vlan.ko
 kernel/net/bridge/netfilter/ebtable_broute.ko
 kernel/net/bridge/netfilter/ebtable_filter.ko
 kernel/net/bridge/netfilter/ebtable_nat.ko
-kernel/net/bridge/netfilter/nf_log_bridge.ko
 kernel/net/bridge/netfilter/nft_meta_bridge.ko
 kernel/net/bridge/netfilter/nft_reject_bridge.ko
 kernel/net/dccp/dccp_diag.ko
@@ -384,7 +373,6 @@ kernel/net/ipv4/ipcomp.ko
 kernel/net/ipv4/ipip.ko
 kernel/net/ipv4/netfilter/arpt_mangle.ko
 kernel/net/ipv4/netfilter/arptable_filter.ko
-kernel/net/ipv4/netfilter/ipt_CLUSTERIP.ko
 kernel/net/ipv4/netfilter/ipt_ECN.ko
 kernel/net/ipv4/netfilter/ipt_REJECT.ko
 kernel/net/ipv4/netfilter/ipt_SYNPROXY.ko
@@ -395,8 +383,6 @@ kernel/net/ipv4/netfilter/iptable_mangle.ko
 kernel/net/ipv4/netfilter/iptable_nat.ko
 kernel/net/ipv4/netfilter/iptable_raw.ko
 kernel/net/ipv4/netfilter/nf_dup_ipv4.ko
-kernel/net/ipv4/netfilter/nf_log_arp.ko
-kernel/net/ipv4/netfilter/nf_log_ipv4.ko
 kernel/net/ipv4/netfilter/nf_nat_h323.ko
 kernel/net/ipv4/netfilter/nf_nat_pptp.ko
 kernel/net/ipv4/netfilter/nf_nat_snmp_basic.ko
@@ -442,7 +428,6 @@ kernel/net/ipv6/netfilter/ip6table_mangle.ko
 kernel/net/ipv6/netfilter/ip6table_nat.ko
 kernel/net/ipv6/netfilter/ip6table_raw.ko
 kernel/net/ipv6/netfilter/nf_dup_ipv6.ko
-kernel/net/ipv6/netfilter/nf_log_ipv6.ko
 kernel/net/ipv6/netfilter/nft_dup_ipv6.ko
 kernel/net/ipv6/netfilter/nft_reject_ipv6.ko
 kernel/net/ipv6/sit.ko
@@ -485,6 +470,7 @@ kernel/net/netfilter/nf_conntrack_netbios_ns.ko
 kernel/net/netfilter/nf_conntrack_netlink.ko
 kernel/net/netfilter/nf_conntrack_sane.ko
 kernel/net/netfilter/nf_conntrack_tftp.ko
+kernel/net/netfilter/nf_log_syslog.ko
 kernel/net/netfilter/nf_nat_amanda.ko
 kernel/net/netfilter/nf_nat_ftp.ko
 kernel/net/netfilter/nf_nat_irc.ko
@@ -498,7 +484,6 @@ kernel/net/netfilter/nfnetlink_osf.ko
 kernel/net/netfilter/nfnetlink_queue.ko
 kernel/net/netfilter/nft_chain_nat.ko
 kernel/net/netfilter/nft_compat.ko
-kernel/net/netfilter/nft_counter.ko
 kernel/net/netfilter/nft_ct.ko
 kernel/net/netfilter/nft_hash.ko
 kernel/net/netfilter/nft_limit.ko
@@ -589,7 +574,6 @@ kernel/net/sched/act_bpf.ko
 kernel/net/sched/act_connmark.ko
 kernel/net/sched/act_csum.ko
 kernel/net/sched/act_gact.ko
-kernel/net/sched/act_ipt.ko
 kernel/net/sched/act_mirred.ko
 kernel/net/sched/act_nat.ko
 kernel/net/sched/act_pedit.ko
