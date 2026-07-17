@@ -93,7 +93,6 @@ kernel/drivers/dma/dw/dw_dmac.ko
 kernel/drivers/dma/idma64.ko
 kernel/drivers/edac/amd64_edac.ko
 kernel/drivers/edac/e752x_edac.ko
-kernel/drivers/edac/edac_mce_amd.ko
 kernel/drivers/edac/i3000_edac.ko
 kernel/drivers/edac/i3200_edac.ko
 kernel/drivers/edac/i5100_edac.ko
@@ -239,7 +238,6 @@ kernel/drivers/net/phy/dp83848.ko
 kernel/drivers/net/phy/marvell.ko
 kernel/drivers/net/phy/microchip.ko
 kernel/drivers/net/phy/qcom/at803x.ko
-kernel/drivers/net/phy/qcom/qcom-phy-lib.ko
 kernel/drivers/net/phy/teranetics.ko
 kernel/drivers/net/usb/cdc_ether.ko
 kernel/drivers/net/usb/cdc_mbim.ko
@@ -325,8 +323,6 @@ kernel/fs/nls/nls_utf8.ko
 kernel/fs/quota/quota_tree.ko
 kernel/fs/quota/quota_v2.ko
 kernel/fs/smb/client/cifs.ko
-kernel/fs/smb/common/cifs_arc4.ko
-kernel/fs/smb/common/cifs_md4.ko
 kernel/fs/udf/udf.ko
 kernel/fs/xfs/xfs.ko
 kernel/kernel/bpf/preload/bpf_preload.ko

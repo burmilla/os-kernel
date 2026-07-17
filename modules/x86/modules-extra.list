@@ -132,7 +132,6 @@ kernel/drivers/comedi/drivers/addi_apci_2200.ko
 kernel/drivers/comedi/drivers/addi_apci_3120.ko
 kernel/drivers/comedi/drivers/addi_apci_3501.ko
 kernel/drivers/comedi/drivers/addi_apci_3xxx.ko
-kernel/drivers/comedi/drivers/addi_watchdog.ko
 kernel/drivers/comedi/drivers/adl_pci6208.ko
 kernel/drivers/comedi/drivers/adl_pci7x3x.ko
 kernel/drivers/comedi/drivers/adl_pci8164.ko
@@ -154,8 +153,6 @@ kernel/drivers/comedi/drivers/cb_pcidas64.ko
 kernel/drivers/comedi/drivers/cb_pcidda.ko
 kernel/drivers/comedi/drivers/cb_pcimdas.ko
 kernel/drivers/comedi/drivers/cb_pcimdda.ko
-kernel/drivers/comedi/drivers/comedi_8254.ko
-kernel/drivers/comedi/drivers/comedi_8255.ko
 kernel/drivers/comedi/drivers/comedi_bond.ko
 kernel/drivers/comedi/drivers/comedi_parport.ko
 kernel/drivers/comedi/drivers/comedi_test.ko
@@ -182,9 +179,6 @@ kernel/drivers/comedi/drivers/ni_labpc_common.ko
 kernel/drivers/comedi/drivers/ni_labpc_pci.ko
 kernel/drivers/comedi/drivers/ni_pcidio.ko
 kernel/drivers/comedi/drivers/ni_pcimio.ko
-kernel/drivers/comedi/drivers/ni_routing.ko
-kernel/drivers/comedi/drivers/ni_tio.ko
-kernel/drivers/comedi/drivers/ni_tiocmd.ko
 kernel/drivers/comedi/drivers/ni_usb6501.ko
 kernel/drivers/comedi/drivers/rtd520.ko
 kernel/drivers/comedi/drivers/s626.ko
@@ -192,7 +186,6 @@ kernel/drivers/comedi/drivers/usbdux.ko
 kernel/drivers/comedi/drivers/usbduxfast.ko
 kernel/drivers/comedi/drivers/usbduxsigma.ko
 kernel/drivers/comedi/drivers/vmk80xx.ko
-kernel/drivers/comedi/kcomedilib/kcomedilib.ko
 kernel/drivers/cpufreq/p4-clockmod.ko
 kernel/drivers/crypto/intel/qat/qat_common/intel_qat.ko
 kernel/drivers/crypto/intel/qat/qat_dh895xcc/qat_dh895xcc.ko
@@ -1113,7 +1106,6 @@ kernel/drivers/media/pci/ttpci/budget.ko
 kernel/drivers/media/pci/tw68/tw68.ko
 kernel/drivers/media/platform/m2m-deinterlace.ko
 kernel/drivers/media/platform/marvell/cafe_ccic.ko
-kernel/drivers/media/platform/marvell/mcam-core.ko
 kernel/drivers/media/platform/via/via-camera.ko
 kernel/drivers/media/radio/dsbr100.ko
 kernel/drivers/media/radio/radio-keene.ko
@@ -1739,7 +1731,6 @@ kernel/drivers/net/wireless/atmel/at76c50x-usb.ko
 kernel/drivers/net/wireless/broadcom/b43/b43.ko
 kernel/drivers/net/wireless/broadcom/b43legacy/b43legacy.ko
 kernel/drivers/net/wireless/broadcom/brcm80211/brcmfmac/bca/brcmfmac-bca.ko
-kernel/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko
 kernel/drivers/net/wireless/broadcom/brcm80211/brcmfmac/cyw/brcmfmac-cyw.ko
 kernel/drivers/net/wireless/broadcom/brcm80211/brcmfmac/wcc/brcmfmac-wcc.ko
 kernel/drivers/net/wireless/broadcom/brcm80211/brcmsmac/brcmsmac.ko
@@ -2177,7 +2168,6 @@ kernel/drivers/thermal/intel/int340x_thermal/int3400_thermal.ko
 kernel/drivers/thermal/intel/int340x_thermal/int3401_thermal.ko
 kernel/drivers/thermal/intel/int340x_thermal/int3402_thermal.ko
 kernel/drivers/thermal/intel/int340x_thermal/int3403_thermal.ko
-kernel/drivers/thermal/intel/int340x_thermal/processor_thermal_device.ko
 kernel/drivers/thermal/intel/int340x_thermal/processor_thermal_device_pci.ko
 kernel/drivers/thermal/intel/int340x_thermal/processor_thermal_device_pci_legacy.ko
 kernel/drivers/thermal/intel/intel_pch_thermal.ko
@@ -2452,7 +2442,6 @@ kernel/drivers/video/fbdev/tridentfb.ko
 kernel/drivers/video/fbdev/udlfb.ko
 kernel/drivers/video/fbdev/uvesafb.ko
 kernel/drivers/video/fbdev/vga16fb.ko
-kernel/drivers/video/fbdev/via/viafb.ko
 kernel/drivers/video/fbdev/vt8623fb.ko
 kernel/drivers/video/fbdev/xen-fbfront.ko
 kernel/drivers/virtio/virtio_mem.ko
