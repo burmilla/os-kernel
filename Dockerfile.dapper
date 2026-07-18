@@ -1,4 +1,4 @@
-FROM gcc:12.5.0
+FROM gcc:14.4-trixie
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && apt-get install -y \
@@ -54,7 +54,7 @@ ARG OS_REPO=burmilla
 ARG KERNEL_TAG
 ARG KERNEL_VERSION=${KERNEL_TAG}-${OS_REPO}
 
-ARG FIRMWARE_TAG=20230804
+ARG FIRMWARE_TAG=20260622
 ARG MENUCONFIG
 
 ENV OS_REPO=${OS_REPO} \
@@ -64,7 +64,7 @@ ENV OS_REPO=${OS_REPO} \
     DOCKER_URL_mips=https://get.docker.com/builds/Linux/x86_64/docker-1.10.3 \
     KERNEL_TAG=${KERNEL_TAG} \
     KERNEL_VERSION=${KERNEL_VERSION} \
-    KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v5.x/ \
+    KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v6.x/ \
     KERNEL_TAR=linux-${KERNEL_TAG}.tar.xz \
     KERNEL_SIGN=linux-${KERNEL_TAG}.tar.sign \
     FIRMWARE_TAG=${FIRMWARE_TAG} \
@@ -74,6 +74,6 @@ ENV OS_REPO=${OS_REPO} \
 #ENV KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v4.x/testing/linux-${KERNEL_TAG}.tar.xz
 
 # Install Docker
-RUN curl -fL ${!DOCKER_URL} > /tmp/docker.tgz && \
+RUN curl -fL ${!DOCKER_URL} -o /tmp/docker.tgz && \
     tar zxvf /tmp/docker.tgz --strip-components=1 -C /usr/bin/ && \
     chmod +x /usr/bin/docker
