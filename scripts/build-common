@@ -116,6 +116,10 @@ split_tar() {
     find tar/build/lib/modules/${KVER} -name "*.ko" | xargs -P$(nproc) -n1 strip --strip-debug
     find tar/build/lib/modules/${KVER} -name "*.ko" | xargs -P$(nproc) -n1 objcopy --remove-section=.BTF --remove-section=.BTF.ext
 
+    echo Compressing modules with zstd
+    find tar/build/lib/modules/${KVER} -name '*.ko' -print0 | \
+    xargs -0 -P$(nproc) -n1 zstd --rm -f -q
+
     echo Generating modules.dep and map files
     /sbin/depmod -b tar/build $(basename tar/build/lib/modules/*)
 
