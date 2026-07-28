@@ -14,6 +14,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
         libelf-dev \
         bison \
         flex \
+        zstd \
         u-boot-tools \
         gcc-aarch64-linux-gnu \
     && rm -f /bin/sh && ln -s /bin/bash /bin/sh
