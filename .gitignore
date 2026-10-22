@@ -14,3 +14,4 @@
 /release.log
 /Dockerfile.dapper*
 !/Dockerfile.dapper
+/linux-firmware
