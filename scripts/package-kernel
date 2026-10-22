@@ -22,6 +22,10 @@ done
 
 
 
+if [ "${KERNEL_ARCH}" == "arm64" ]; then
+    export CROSS_COMPILE=aarch64-linux-gnu-
+fi
+
 export CCACHE_DIR="${HOME}/.kernel-ccache"
 export CC="ccache gcc"
 export PATH="/usr/lib/ccache:$PATH"
