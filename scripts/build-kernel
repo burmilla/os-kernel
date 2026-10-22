@@ -27,12 +27,17 @@ if [ -e "/source/dist/kernel/linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz" ]; t
 else
     cd ${BUILD}/${DIR}
     make ARCH=${KERNEL_ARCH} oldconfig
+    if grep -q '^CONFIG_DEBUG_INFO_BTF=y' ${CONFIG}/${KERNEL_ARCH}/kernel-config \
+        && ! grep -q '^CONFIG_DEBUG_INFO_BTF=y' .config; then
+        echo "ERROR: oldconfig disabled CONFIG_DEBUG_INFO_BTF, install pahole in the build image"
+        exit 1
+    fi
     KVER=$(make ARCH=${KERNEL_ARCH} kernelrelease)
     if [ -e "linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar" ] \
         && [ "$KVER" == "$KERNEL_VERSION" ]; then
         echo "Skipping kernel build, found linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar in $(pwd)"
     else
         echo "building $KVER"
-        make ARCH=${KERNEL_ARCH} -j$(nproc) tar-pkg
+        make ARCH=${KERNEL_ARCH} -j$(nproc) INSTALL_MOD_STRIP=1 tar-pkg
     fi
 fi

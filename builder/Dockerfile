@@ -16,6 +16,7 @@ RUN set -eux; \
         bc \
         kmod \
         libelf-dev \
+        pahole \
         bison \
         flex \
         zstd \

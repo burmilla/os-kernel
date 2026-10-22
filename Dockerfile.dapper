@@ -39,6 +39,13 @@ ENV OS_REPO=${OS_REPO} \
 # for rc testing
 #ENV KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v4.x/testing/linux-${KERNEL_TAG}.tar.xz
 
+# pahole generates the BTF type information (CONFIG_DEBUG_INFO_BTF). Without it
+# oldconfig silently drops BTF, so it is added on top of the builder image
+# until the image is rebuilt from builder/Dockerfile
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends pahole \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install Docker
 RUN curl -fL ${!DOCKER_URL} -o /tmp/docker.tgz && \
     tar zxvf /tmp/docker.tgz --strip-components=1 -C /usr/bin/ && \
