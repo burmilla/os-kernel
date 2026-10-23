@@ -10,10 +10,6 @@ if [ "${KERNEL_ARCH}" == "arm64" ]; then
     export CROSS_COMPILE=aarch64-linux-gnu-
 fi
 
-if [ "${KERNEL_ARCH}" == "mips" ]; then
-    export CROSS_COMPILE=mips64el-linux-gnuabi64-
-fi
-
 export CCACHE_DIR="${HOME}/.kernel-ccache"
 export CC="ccache gcc"
 export PATH="/usr/lib/ccache:$PATH"
