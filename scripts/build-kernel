@@ -8,6 +8,8 @@ source scripts/version
 
 if [ "${KERNEL_ARCH}" == "arm64" ]; then
     export CROSS_COMPILE=aarch64-linux-gnu-
+elif [ "${KERNEL_ARCH}" == "loongarch" ]; then
+    export CROSS_COMPILE=loongarch64-linux-gnu-
 fi
 
 export CCACHE_DIR="${HOME}/.kernel-ccache"
