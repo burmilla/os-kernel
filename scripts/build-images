@@ -9,6 +9,13 @@ cd $(dirname $0)/..
 mkdir -p dist
 > dist/images
 
+# Images are built for the host architecture and tagged without an arch
+# suffix, so a cross-compiled kernel would overwrite the host images
+if [ "${KERNEL_ARCH}" != "${HOST_KERNEL_ARCH}" ]; then
+    echo "Skipping images, ${KERNEL_ARCH} kernel is cross-compiled on ${HOST_KERNEL_ARCH}"
+    exit 0
+fi
+
 for i in $BASE/[1-9]*; do
     name="os-$(echo ${i} | cut -f2 -d-)"
     tag="${OS_REPO}/${name}:${KERNEL_VERSION}${SUFFIX}"
