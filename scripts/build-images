@@ -2,12 +2,41 @@
 set -e
 
 BASE=images
+ALPINE_VERSION=3.22
 
 source $(dirname $0)/version
 cd $(dirname $0)/..
 
 mkdir -p dist
 > dist/images
+
+# Images are built for the host architecture, so a cross-compiled kernel
+# needs its images built for its own architecture under QEMU emulation
+if [ "${KERNEL_ARCH}" != "${HOST_KERNEL_ARCH}" ]; then
+    case ${KERNEL_ARCH} in
+        arm64)
+            export DOCKER_DEFAULT_PLATFORM=linux/arm64
+            BUILD_ARGS="--build-arg KERNEL_BASE_IMAGE=busybox:1.37.0"
+            ;;
+        loongarch)
+            # Docker Hub has no loong64 alpine or busybox, so import the
+            # minirootfs that Alpine publishes and use it for every image
+            export DOCKER_DEFAULT_PLATFORM=linux/loong64
+            ALPINE_IMAGE=burmilla/alpine-minirootfs:${ALPINE_VERSION}-loongarch64
+            ALPINE_URL=https://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/releases/loongarch64
+            ROOTFS=$(curl -sfL ${ALPINE_URL}/latest-releases.yaml \
+                | grep -o "alpine-minirootfs-${ALPINE_VERSION}\.[0-9]*-loongarch64\.tar\.gz" | head -n 1)
+            curl -sfL ${ALPINE_URL}/${ROOTFS} -o dist/${ROOTFS}
+            curl -sfL ${ALPINE_URL}/${ROOTFS}.sha256 | (cd dist && sha256sum -c -)
+            docker import --platform ${DOCKER_DEFAULT_PLATFORM} dist/${ROOTFS} ${ALPINE_IMAGE}
+            BUILD_ARGS="--build-arg KERNEL_BASE_IMAGE=${ALPINE_IMAGE} --build-arg ALPINE_IMAGE=${ALPINE_IMAGE}"
+            ;;
+        *)
+            echo "Skipping images, no ${KERNEL_ARCH} image support when cross-compiling"
+            exit 0
+            ;;
+    esac
+fi
 
 for i in $BASE/[1-9]*; do
     name="os-$(echo ${i} | cut -f2 -d-)"
@@ -18,7 +47,7 @@ for i in $BASE/[1-9]*; do
         ${i}/prebuild.sh
     fi
 
-    if dapper -d --build -f ${i}/Dockerfile -- -t burmilla/${name} --build-arg KERNEL_VERSION ${i}; then
+    if dapper -d --build -f ${i}/Dockerfile -- -t burmilla/${name} --build-arg KERNEL_VERSION ${BUILD_ARGS} ${i}; then
         docker tag burmilla/${name} ${tag}
         echo ${tag} >> dist/images
     elif [ "$?" != "42" ]; then

@@ -17,6 +17,7 @@ kernel/drivers/hid/hid-multitouch.ko.zst
 kernel/drivers/hid/hid-logitech.ko.zst
 kernel/drivers/hid/i2c-hid/i2c-hid-of.ko.zst
 kernel/drivers/hid/i2c-hid/i2c-hid-acpi.ko.zst
+kernel/drivers/hid/i2c-hid/i2c-hid-acpi-prp0001.ko.zst
 kernel/drivers/hid/i2c-hid/i2c-hid.ko.zst
 kernel/drivers/hid/i2c-hid/i2c-hid-of-elan.ko.zst
 kernel/drivers/hid/hid-elan.ko.zst
