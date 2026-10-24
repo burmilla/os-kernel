@@ -19,6 +19,8 @@ if [ "${KERNEL_ARCH}" == "arm64" ]; then
     export CROSS_COMPILE=aarch64-linux-gnu-
 elif [ "${KERNEL_ARCH}" == "loongarch" ]; then
     export CROSS_COMPILE=loongarch64-linux-gnu-
+elif [ "${KERNEL_ARCH}" == "riscv" ]; then
+    export CROSS_COMPILE=riscv64-linux-gnu-
 fi
 
 if [ -e "/source/dist/kernel/linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar.gz" ]; then

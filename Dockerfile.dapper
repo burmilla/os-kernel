@@ -40,10 +40,10 @@ ENV OS_REPO=${OS_REPO} \
 #ENV KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v4.x/testing/linux-${KERNEL_TAG}.tar.xz
 
 # pahole generates the BTF type information (CONFIG_DEBUG_INFO_BTF). Without it
-# oldconfig silently drops BTF, so it is added on top of the builder image
-# until the image is rebuilt from builder/Dockerfile
+# oldconfig silently drops BTF. It and the riscv64 cross compiler are added on
+# top of the builder image until the image is rebuilt from builder/Dockerfile
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends pahole \
+    && apt-get install -y --no-install-recommends pahole gcc-riscv64-linux-gnu \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Docker
