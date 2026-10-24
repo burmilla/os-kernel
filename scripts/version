@@ -35,3 +35,10 @@ fi
 if [ "${KERNEL_ARCH}" != "${HOST_KERNEL_ARCH}" ]; then
     SUFFIX="_${KERNEL_ARCH}"
 fi
+
+# Debug info is only built for BTF, so it is stripped from vmlinux and modules.
+# riscv objects also keep millions of local .L labels that --strip-debug leaves
+STRIP_FLAGS="--strip-debug"
+if [ "${KERNEL_ARCH}" == "riscv" ]; then
+    STRIP_FLAGS="--strip-debug --discard-locals"
+fi
