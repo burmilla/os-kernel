@@ -23,6 +23,7 @@ RUN set -eux; \
         u-boot-tools \
         gcc-aarch64-linux-gnu \
         gcc-loongarch64-linux-gnu \
+        gcc-riscv64-linux-gnu \
     && rm -f /bin/sh && ln -s /bin/bash /bin/sh \
     && rm -rf /var/lib/apt/lists/*
 

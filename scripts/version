@@ -26,7 +26,19 @@ case $ARCH in
         KERNEL_ARCH=${ARCH}
         ;;
 esac
+HOST_KERNEL_ARCH=${KERNEL_ARCH}
 
 if [ -n "${OVERRIDE_KERNEL_ARCH}" ]; then
     KERNEL_ARCH=${OVERRIDE_KERNEL_ARCH}
+fi
+
+if [ "${KERNEL_ARCH}" != "${HOST_KERNEL_ARCH}" ]; then
+    SUFFIX="_${KERNEL_ARCH}"
+fi
+
+# Debug info is only built for BTF, so it is stripped from vmlinux and modules.
+# riscv objects also keep millions of local .L labels that --strip-debug leaves
+STRIP_FLAGS="--strip-debug"
+if [ "${KERNEL_ARCH}" == "riscv" ]; then
+    STRIP_FLAGS="--strip-debug --discard-locals"
 fi

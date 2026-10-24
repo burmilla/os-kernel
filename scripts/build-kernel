@@ -8,6 +8,10 @@ source scripts/version
 
 if [ "${KERNEL_ARCH}" == "arm64" ]; then
     export CROSS_COMPILE=aarch64-linux-gnu-
+elif [ "${KERNEL_ARCH}" == "loongarch" ]; then
+    export CROSS_COMPILE=loongarch64-linux-gnu-
+elif [ "${KERNEL_ARCH}" == "riscv" ]; then
+    export CROSS_COMPILE=riscv64-linux-gnu-
 fi
 
 export CCACHE_DIR="${HOME}/.kernel-ccache"
@@ -34,6 +38,6 @@ else
         echo "Skipping kernel build, found linux-${KERNEL_VERSION}-${KERNEL_ARCH}.tar in $(pwd)"
     else
         echo "building $KVER"
-        make ARCH=${KERNEL_ARCH} -j$(nproc) INSTALL_MOD_STRIP=1 tar-pkg
+        make ARCH=${KERNEL_ARCH} -j$(nproc) INSTALL_MOD_STRIP="${STRIP_FLAGS}" tar-pkg
     fi
 fi
