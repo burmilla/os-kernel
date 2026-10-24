@@ -80,8 +80,8 @@ jobs:
         sudo bunzip2 /usr/local/bin/github-release.bz2
         sudo chmod 0755 /usr/local/bin/github-release
 
-    - name: Set up QEMU for arm64 images
-      if: github.event.inputs.arch == 'arm64'
+    - name: Set up QEMU for arm64 and loongarch images
+      if: github.event.inputs.arch == 'arm64' || github.event.inputs.arch == 'loongarch'
       uses: docker/setup-qemu-action@v3
 
     - name: Build kernel
