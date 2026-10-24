@@ -18,6 +18,10 @@ if [ "${KERNEL_ARCH}" != "${HOST_KERNEL_ARCH}" ]; then
             export DOCKER_DEFAULT_PLATFORM=linux/arm64
             BUILD_ARGS="--build-arg KERNEL_BASE_IMAGE=busybox:1.37.0"
             ;;
+        riscv)
+            export DOCKER_DEFAULT_PLATFORM=linux/riscv64
+            BUILD_ARGS="--build-arg KERNEL_BASE_IMAGE=busybox:1.37.0"
+            ;;
         loongarch)
             # Docker Hub has no loong64 alpine or busybox, so import the
             # minirootfs that Alpine publishes and use it for every image
