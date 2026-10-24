@@ -14,15 +14,12 @@ kernel/drivers/char/tpm/xen-tpmfront.ko
 kernel/drivers/crypto/cavium/zip/thunderx_zip.ko
 kernel/drivers/crypto/qce/qcrypto.ko
 kernel/drivers/crypto/virtio/virtio_crypto.ko
-kernel/drivers/dma/bcm2835-dma.ko
 kernel/drivers/gpio/gpio-thunderx.ko
 kernel/drivers/i2c/busses/i2c-bcm2835.ko
 kernel/drivers/i2c/busses/i2c-thunderx.ko
 kernel/drivers/i2c/i2c-smbus.ko
 kernel/drivers/mmc/core/pwrseq_emmc.ko
 kernel/drivers/mmc/core/pwrseq_simple.ko
-kernel/drivers/mmc/host/bcm2835.ko
-kernel/drivers/mmc/host/sdhci-iproc.ko
 kernel/drivers/net/ethernet/cavium/thunder/nicpf.ko
 kernel/drivers/net/ethernet/cavium/thunder/nicvf.ko
 kernel/drivers/net/ethernet/hisilicon/hns/hnae.ko
@@ -30,6 +27,7 @@ kernel/drivers/net/ethernet/hisilicon/hns/hns_dsaf.ko
 kernel/drivers/net/ethernet/hisilicon/hns/hns_enet_drv.ko
 kernel/drivers/net/ethernet/hisilicon/hns_mdio.ko
 kernel/drivers/net/ethernet/intel/iavf/iavf.ko
+kernel/drivers/net/mdio/acpi_mdio.ko
 kernel/drivers/net/mdio/mdio-thunder.ko
 kernel/drivers/net/phy/smsc.ko
 kernel/drivers/net/ppp/bsd_comp.ko
@@ -47,8 +45,9 @@ kernel/drivers/net/team/team_mode_random.ko
 kernel/drivers/net/team/team_mode_roundrobin.ko
 kernel/drivers/net/usb/smsc95xx.ko
 kernel/drivers/pwm/pwm-bcm2835.ko
-kernel/drivers/reset/reset-raspberrypi.ko
 kernel/drivers/scsi/raid_class.ko
+kernel/drivers/spi/spi-bcm2835.ko
+kernel/drivers/spi/spi-bcm2835aux.ko
 kernel/drivers/usb/dwc2/dwc2.ko
 kernel/drivers/usb/host/ehci-hcd.ko
 kernel/drivers/usb/host/ehci-pci.ko
@@ -56,7 +55,7 @@ kernel/drivers/usb/host/xhci-hcd.ko
 kernel/drivers/usb/host/xhci-pci.ko
 kernel/drivers/usb/phy/phy-generic.ko
 kernel/drivers/vhost/vhost_vsock.ko
-kernel/fs/ntfs/ntfs.ko
+kernel/fs/ntfs3/ntfs3.ko
 kernel/net/ipv6/ila/ila.ko
 kernel/net/l2tp/l2tp_core.ko
 kernel/net/l2tp/l2tp_ppp.ko
