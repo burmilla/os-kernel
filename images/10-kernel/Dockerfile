@@ -1,4 +1,6 @@
-FROM linuxkit/toybox-media:eee3dd4d72cd784801e95b1781e6c4f9d8a5e5eb@sha256:7f940e687164ee2676e11c61705c79f7dd2d144ee87ad17a494848a7045f5f53
+# linuxkit/toybox-media is amd64 only, other architectures override this
+ARG KERNEL_BASE_IMAGE=linuxkit/toybox-media:eee3dd4d72cd784801e95b1781e6c4f9d8a5e5eb@sha256:7f940e687164ee2676e11c61705c79f7dd2d144ee87ad17a494848a7045f5f53
+FROM ${KERNEL_BASE_IMAGE}
 ARG KERNEL_VERSION
 ENV KERNEL_VERSION=${KERNEL_VERSION}
 ENTRYPOINT []

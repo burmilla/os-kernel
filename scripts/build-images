@@ -9,11 +9,19 @@ cd $(dirname $0)/..
 mkdir -p dist
 > dist/images
 
-# Images are built for the host architecture and tagged without an arch
-# suffix, so a cross-compiled kernel would overwrite the host images
+# Images are built for the host architecture, so a cross-compiled kernel
+# needs its images built for its own architecture under QEMU emulation
 if [ "${KERNEL_ARCH}" != "${HOST_KERNEL_ARCH}" ]; then
-    echo "Skipping images, ${KERNEL_ARCH} kernel is cross-compiled on ${HOST_KERNEL_ARCH}"
-    exit 0
+    case ${KERNEL_ARCH} in
+        arm64)
+            export DOCKER_DEFAULT_PLATFORM=linux/arm64
+            BUILD_ARGS="--build-arg KERNEL_BASE_IMAGE=busybox:1.37.0"
+            ;;
+        *)
+            echo "Skipping images, no ${KERNEL_ARCH} image support when cross-compiling"
+            exit 0
+            ;;
+    esac
 fi
 
 for i in $BASE/[1-9]*; do
@@ -25,7 +33,7 @@ for i in $BASE/[1-9]*; do
         ${i}/prebuild.sh
     fi
 
-    if dapper -d --build -f ${i}/Dockerfile -- -t burmilla/${name} --build-arg KERNEL_VERSION ${i}; then
+    if dapper -d --build -f ${i}/Dockerfile -- -t burmilla/${name} --build-arg KERNEL_VERSION ${BUILD_ARGS} ${i}; then
         docker tag burmilla/${name} ${tag}
         echo ${tag} >> dist/images
     elif [ "$?" != "42" ]; then
