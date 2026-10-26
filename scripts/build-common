@@ -108,10 +108,10 @@ split_tar() {
     mkdir -p tar/{build,main,extra}
     echo Extracting $archive
     tar xf $archive -C tar/build
-    # vmlinux is built with DWARF for BTF; --strip-debug keeps .BTF and the symbols
+    # vmlinux is built with DWARF for BTF; STRIP_FLAGS keep .BTF and the symbols
     for i in tar/build/boot/vmlinux-*; do
         if [ -e "$i" ]; then
-            ${CROSS_COMPILE}strip --strip-debug "$i"
+            ${CROSS_COMPILE}strip ${STRIP_FLAGS} "$i"
         fi
     done
     /sbin/depmod -b tar/build $(basename tar/build/lib/modules/*)
