@@ -2,7 +2,6 @@ kernel/crypto/xor.ko
 kernel/drivers/block/brd.ko
 kernel/drivers/block/drbd/drbd.ko
 kernel/drivers/block/rbd.ko
-kernel/drivers/dma/virt-dma.ko
 kernel/drivers/i2c/algos/i2c-algo-bit.ko
 kernel/drivers/md/dm-multipath.ko
 kernel/drivers/md/dm-queue-length.ko
@@ -24,7 +23,6 @@ kernel/drivers/net/ethernet/intel/igb/igb.ko
 kernel/drivers/net/ethernet/intel/igbvf/igbvf.ko
 kernel/drivers/net/ethernet/intel/ixgbe/ixgbe.ko
 kernel/drivers/net/ethernet/intel/ixgbevf/ixgbevf.ko
-kernel/drivers/net/ethernet/intel/ixgb/ixgb.ko
 kernel/drivers/net/ethernet/mellanox/mlx4/mlx4_core.ko
 kernel/drivers/net/ethernet/mellanox/mlx4/mlx4_en.ko
 kernel/drivers/net/ethernet/mellanox/mlx5/core/mlx5_core.ko
@@ -73,7 +71,6 @@ kernel/net/ipv4/esp4.ko
 kernel/net/ipv4/ipcomp.ko
 kernel/net/ipv4/ip_gre.ko
 kernel/net/ipv4/ip_vti.ko
-kernel/net/ipv4/netfilter/ipt_CLUSTERIP.ko
 kernel/net/ipv4/xfrm4_tunnel.ko
 kernel/net/ipv6/ah6.ko
 kernel/net/ipv6/esp6.ko
@@ -105,10 +102,8 @@ kernel/net/openvswitch/openvswitch.ko
 kernel/net/openvswitch/vport-geneve.ko
 kernel/net/openvswitch/vport-gre.ko
 kernel/net/openvswitch/vport-vxlan.ko
-kernel/net/sched/sch_cbq.ko
 kernel/net/sched/sch_choke.ko
 kernel/net/sched/sch_drr.ko
-kernel/net/sched/sch_dsmark.ko
 kernel/net/sched/sch_gred.ko
 kernel/net/sched/sch_hfsc.ko
 kernel/net/sched/sch_htb.ko
